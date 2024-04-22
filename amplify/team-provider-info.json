@@ -1,0 +1,26 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-rnawsamplify-dev-3f213-authRole",
+      "UnauthRoleArn": "arn:aws:iam::590183847613:role/amplify-rnawsamplify-dev-3f213-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::590183847613:role/amplify-rnawsamplify-dev-3f213-authRole",
+      "Region": "us-east-2",
+      "DeploymentBucketName": "amplify-rnawsamplify-dev-3f213-deployment",
+      "UnauthRoleName": "amplify-rnawsamplify-dev-3f213-unauthRole",
+      "StackName": "amplify-rnawsamplify-dev-3f213",
+      "StackId": "arn:aws:cloudformation:us-east-2:590183847613:stack/amplify-rnawsamplify-dev-3f213/baf29430-f3a4-11ee-a426-06d95510e079",
+      "AmplifyAppId": "dvwfnzf7exufk"
+    },
+    "categories": {
+      "api": {
+        "rnawsamplify": {}
+      },
+      "auth": {
+        "rnawsamplifydc5f998e": {}
+      },
+      "function": {
+        "lambdafunction": {}
+      }
+    }
+  }
+}
