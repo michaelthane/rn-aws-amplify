@@ -1,0 +1,1 @@
+Following AWS RN tutorial

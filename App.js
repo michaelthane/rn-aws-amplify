@@ -11,6 +11,7 @@ import { generateClient } from 'aws-amplify/api';
 import { createTodo } from './src/graphql/mutations';
 import { listTodos } from './src/graphql/queries';
 import {
+  Authenticator,
   withAuthenticator,
   useAuthenticator
 } from '@aws-amplify/ui-react-native';
@@ -76,36 +77,41 @@ const App = () => {
   }
 
   return (
-    <SafeAreaView style={styles.container}>
-      <View style={styles.container}>
-        <SignOutButton />
-        <TextInput
-          onChangeText={(value) => setInput('name', value)}
-          style={styles.input}
-          value={formState.name}
-          placeholder="Name"
-        />
-        <TextInput
-          onChangeText={(value) => setInput('description', value)}
-          style={styles.input}
-          value={formState.description}
-          placeholder="Description"
-        />
-        <Pressable onPress={addTodo} style={styles.buttonContainer}>
-          <Text style={styles.buttonText}>Create todo</Text>
-        </Pressable>
-        {todos.map((todo, index) => (
-          <View key={todo.id ? todo.id : index} style={styles.todo}>
-            <Text style={styles.todoName}>{todo.name}</Text>
-            <Text style={styles.todoDescription}>{todo.description}</Text>
+    <Authenticator.Provider>
+      <Authenticator>
+        <SafeAreaView style={styles.container}>
+          <View style={styles.container}>
+            <SignOutButton />
+            <TextInput
+              onChangeText={(value) => setInput('name', value)}
+              style={styles.input}
+              value={formState.name}
+              placeholder="Name"
+            />
+            <TextInput
+              onChangeText={(value) => setInput('description', value)}
+              style={styles.input}
+              value={formState.description}
+              placeholder="Description"
+            />
+            <Pressable onPress={addTodo} style={styles.buttonContainer}>
+              <Text style={styles.buttonText}>Create todo</Text>
+            </Pressable>
+            {todos.map((todo, index) => (
+              <View key={todo.id ? todo.id : index} style={styles.todo}>
+                <Text style={styles.todoName}>{todo.name}</Text>
+                <Text style={styles.todoDescription}>{todo.description}</Text>
+              </View>
+            ))}
           </View>
-        ))}
-      </View>
-    </SafeAreaView>
+        </SafeAreaView>
+      </Authenticator>
+    </Authenticator.Provider>
   );
 };
 
-export default withAuthenticator(App);
+// export default withAuthenticator(App);
+export default App;
 
 const styles = StyleSheet.create({
   container: { width: 400, flex: 1, padding: 20, alignSelf: 'center' },
